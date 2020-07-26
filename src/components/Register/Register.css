@@ -1,0 +1,313 @@
+.register_body_container_ah
+{
+    width:100%;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+
+}
+.register_form_group_ah
+{
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 175px;
+}
+.register_form_text_ah
+{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:flex-end;
+    text-align:center;
+    margin-right: 185px; 
+    margin-top:40px;    
+}
+.register_form_text_ah h2
+{
+    width: 400px;
+    font-size: 36px;
+}
+.register_form_group_item_ah
+{
+    width:400px;
+    margin-top: 10px;
+    line-height: 1rem;
+    font-size: 15px;
+}
+.register_form_group_textitem_ah
+{
+  width:400px;
+  margin-top:20px;
+  text-align:center;
+}
+#currency_form_area_ah
+{
+    margin-right: 55px;
+    width:300px;
+    text-align: center;
+}
+#register_submit_btn_ah
+{
+    position: relative;
+    left: 330px;
+    margin-top: 20px;
+    background-color: #01cb34;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+
+#register_submit_btn_ah:hover {
+  background-color: black;
+  color: white;
+}
+.register_form_links_ah
+{
+    text-decoration: none;
+}
+.register_form_slogan_ah
+{
+    font-size: 80px;
+    position: absolute;
+    top: 10%;
+    left:4%;
+    font-family: sans-serif;
+}
+/*****************POPUP name******************/
+.popup_ah {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup_ah .namepopuptext_ah {
+    visibility: hidden;
+    width: 200px;
+    background-color: #99ff66;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 1%;
+    right:102%;
+  
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup_ah .namepopuptext_ah::after {
+    content: "";
+    position: absolute;
+    top: 35%;
+    right: -9%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #99ff66;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup_ah .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+  
+ /*****************POPUP email******************/
+.popup_ah {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup_ah .emailpopuptext_ah {
+    visibility: hidden;
+    width: 300px;
+    background-color: #99ff66;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 1%;
+    right:102%;
+  
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup_ah .emailpopuptext_ah::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #99ff66;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup_ah .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+/*****************POPUP password******************/
+.popup_ah {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup_ah .passwordpopuptext_ah {
+    visibility: hidden;
+    width: 300px;
+    background-color: #99ff66;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 1%;
+    right:102%;
+  
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup_ah .passwordpopuptext_ah::after {
+    content: "";
+    position: absolute;
+    top: 60%;
+    right: -6%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #99ff66;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup_ah .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  /*****************POPUP repassword******************/
+.popup_ah {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup_ah .repasswordpopuptext_ah {
+    visibility: hidden;
+    width: 300px;
+    background-color: #99ff66;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 1%;
+    right:102%;
+  
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup_ah .repasswordpopuptext_ah::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    right: -6%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #99ff66;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .popup_ah .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+  

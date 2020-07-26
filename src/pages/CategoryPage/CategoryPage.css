@@ -1,0 +1,13 @@
+.ctn{
+    display: flex;
+    align-items: center;
+    margin-left: 500px;
+}
+.btnA{
+    padding-bottom: 8px;
+    
+}
+.het{
+    margin: 30px 100px ;
+    text-align: center;
+}

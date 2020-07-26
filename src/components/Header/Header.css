@@ -1,0 +1,8 @@
+
+.header_img{
+    background-image: url("../../assets/marjanblan-RQUpxXgd-mk-unsplash.jpg");
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+}

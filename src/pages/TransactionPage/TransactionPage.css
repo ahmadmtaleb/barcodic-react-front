@@ -1,0 +1,16 @@
+.transaction_page_fi{
+
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    margin-top: 40px;
+  
+      
+      
+  }
+  .ant-form{
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      
+      width: 400px;
+  }
