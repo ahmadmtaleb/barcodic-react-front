@@ -64,7 +64,8 @@ class TabelForm extends React.Component {
           <tr>
             <th>#</th>
             
-            <th>Name</th>
+            <th>English Name</th>
+            <th>Arabic Name</th>
             <th></th>
            
 
@@ -75,7 +76,8 @@ class TabelForm extends React.Component {
              <tr key={index}>
              <th scope="row">{index+1}</th>
            
-           <td>{item.name}</td>
+           <td>{item.english_name}</td>
+           <td>{item.arabic_name}</td>
            <td><Button type="primary" value={item.id} onClick={ this.handleDelete.bind(this)}>DELETE</Button></td>
           </tr>
            )}

@@ -17,7 +17,7 @@ export default class CategoryPage extends React.Component{
             this.state={
                 Category:[],
                 name: '',
-                id:''
+                id:'',
             }
         }
         async componentDidMount() {
@@ -25,11 +25,12 @@ export default class CategoryPage extends React.Component{
     }
 
     getCategories = async ()=> {
-      const token = localStorage.getItem('token');
+      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjEuNjo4MDAwXC9hcGlcL2xvZ2luIiwiaWF0IjoxNTk1Nzg2NDg1LCJleHAiOjE1OTU4NzI4ODUsIm5iZiI6MTU5NTc4NjQ4NSwianRpIjoib0RyRER6cmVRZDEzMlhkZCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.GLBl2MVwNlXsKSbNbpKznXKi8We-iVDT3_NO3n4Q24U';
+      //const token = localStorage.getItem('token');
       if (token !== undefined && token !== null) {
   
         try {
-          const response = await fetch(`http://localhost:8000/api/categories?token=${token}`);
+          const response = await fetch(`http://192.168.1.6:8000/api/categories?token=${token}`);
           const json = await response.json();
 
           if (json.success === true) {
@@ -38,7 +39,7 @@ export default class CategoryPage extends React.Component{
               })
           }
         } catch (error) {}
-  }
+      }
     }
 
     onNameChange(event)
@@ -54,7 +55,7 @@ export default class CategoryPage extends React.Component{
 
             try 
             {
-                const response = await fetch(`http://127.0.0.1:8000/api/categories/?name=${this.state.name}&token=${token}`, {
+                const response = await fetch(`http://192.168.1.6:8000/api/categories/?name=${this.state.name}&token=${token}`, {
                     method: 'POST'
                 });
                 const result = await response.json();
