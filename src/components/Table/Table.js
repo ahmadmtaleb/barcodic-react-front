@@ -35,7 +35,11 @@ class TableForm extends React.Component {
               18:"ألبان/أجبان",
               19:"سكاكر",
               20:"بطاطا",
-              21: "مأكولات مثلجة"
+              21: "مأكولات مثلجة",
+              22:"قرطاسية",
+              23:"مختلف",
+              24:"الكترونيات",
+              25:"دواء"
             },
           },
           {title: 'Brand', field: 'brand'},
@@ -55,12 +59,11 @@ class TableForm extends React.Component {
     };
   }
   componentDidMount = async ()=> {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjEuNjo4MDAwXC9hcGlcL2xvZ2luIiwiaWF0IjoxNTk1Nzg2NDg1LCJleHAiOjE1OTU4NzI4ODUsIm5iZiI6MTU5NTc4NjQ4NSwianRpIjoib0RyRER6cmVRZDEzMlhkZCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.GLBl2MVwNlXsKSbNbpKznXKi8We-iVDT3_NO3n4Q24U';
-    //const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token !== undefined && token !== null) {
 
       try {
-        const response = await fetch(`http://192.168.1.6:8000/api/items?token=${token}`);
+        const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
         const json = await response.json();
 
         if (json.success === true) {
@@ -78,24 +81,7 @@ class TableForm extends React.Component {
       <div className="table_component_main_body" style={{maxWidth:'100%'}}>
         <MaterialTable
           title="Items"
-          // columns={[
-          //   { title: 'Item id', field: 'id', type:"numeric" },
-          //   { title: 'English Name', field: 'english_name' },
-          //   { title: 'Arabic Name', field: 'arabic_name'},
-          //   {
-          //     title: 'Category',
-          //     field: 'birthCity',
-          //     lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-          //   },
-          //   {title: 'Brand', field: 'brand'},
-          //   {title: 'Barcode', field: 'barcode'},
-          //   {title: 'price', field: 'price'}
-          // ]}
-          // data={[
-          //   { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-          //   { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-          // ]}
-          // data={this.props.list}
+          
           columns={this.state.columns}
           data={this.state.data}
           editable={{

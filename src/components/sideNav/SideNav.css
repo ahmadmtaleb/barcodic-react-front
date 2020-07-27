@@ -3,7 +3,7 @@
 }
 .side_nav_slide_container{
     position: fixed;
-    background-color:teal;
+    background-color: #000000;
 }
 
 .side_nav_links{
@@ -13,18 +13,34 @@
    
 }
 .side_nav_nait{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 :hover.side_nav_links{
     text-decoration: none;
     color:cyan;
 }
 .side_nav_nait-logout{
-    margin-top: 160px;}
-    .namef{
+    margin-top: 40px;
+}
+.namef{
         color: seashell;
         
     }
     .userN{
         margin-bottom: 80px;
     }
+/* .side_nav_links_white_barcode{
+    background-color: white;
+} */
+.white_nav_barcode_item{
+    background-color: white;
+    /* color:white; */
+    text-decoration: none;
+    height:0.5em;
+}
+.black_nav_barcode_item{
+    background-color: black;
+    /* color:black; */
+    text-decoration: none;
+    height:0.2em;
+}

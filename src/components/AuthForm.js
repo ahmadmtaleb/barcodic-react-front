@@ -12,7 +12,18 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+      AT
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,36 +57,38 @@ export default function SignIn(props) {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5"  >
-          Add a User
+          Sign in
         </Typography>
         <form className={classes.form} noValidate   onSubmit={
           async (event) => {
-            const token = localStorage.getItem('token');
             event.preventDefault();
              try 
             {
-                const response = await fetch(`http://192.168.1.3:8000/api/register/?token=${token}&username=${email}&password=${pass}&role_id=1`, {
+                const response = await fetch(`http://192.168.1.3:8000/api/login/?username=${email}&password=${pass}`, {
                     method: 'POST'
                 });
     
                 const result = await response.json();
                 if (result.success) 
                 {
-                  alert("The user has been successfully added.");
-                  
+                    console.log("done")
+                    localStorage.setItem('token', result.token) 
+                    props.handleLogin()
+                    
                 } 
                 else 
                 {
                     console.log("error");
-                    
+                    alert("Incorrect email or password");
                 }
             } 
             catch (err) 
             {
                 console.log('err', err)
-                alert("Please, try again.");
+                alert("Incorrect email or password");
             }  
        }
 
@@ -109,7 +122,10 @@ export default function SignIn(props) {
             autoComplete="current-password"
           />
           
-          
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
           <Button
             type="submit"
             fullWidth
@@ -117,12 +133,13 @@ export default function SignIn(props) {
             color="primary"
             className={classes.submit}
           >
-            Register
+            Sign In
           </Button>
        
         </form>
       </div>
       <Box mt={8}>
+        <Copyright />
       </Box>
     </Container>
   );

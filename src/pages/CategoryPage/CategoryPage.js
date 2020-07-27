@@ -16,7 +16,8 @@ export default class CategoryPage extends React.Component{
             super(props);
             this.state={
                 Category:[],
-                name: '',
+                engish_name: '',
+                arabic_name:'',
                 id:'',
             }
         }
@@ -25,12 +26,11 @@ export default class CategoryPage extends React.Component{
     }
 
     getCategories = async ()=> {
-      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xOTIuMTY4LjEuNjo4MDAwXC9hcGlcL2xvZ2luIiwiaWF0IjoxNTk1Nzg2NDg1LCJleHAiOjE1OTU4NzI4ODUsIm5iZiI6MTU5NTc4NjQ4NSwianRpIjoib0RyRER6cmVRZDEzMlhkZCIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.GLBl2MVwNlXsKSbNbpKznXKi8We-iVDT3_NO3n4Q24U';
-      //const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
       if (token !== undefined && token !== null) {
   
         try {
-          const response = await fetch(`http://192.168.1.6:8000/api/categories?token=${token}`);
+          const response = await fetch(`http://192.168.1.3:8000/api/categories?token=${token}`);
           const json = await response.json();
 
           if (json.success === true) {
@@ -42,11 +42,14 @@ export default class CategoryPage extends React.Component{
       }
     }
 
-    onNameChange(event)
+    onEnglishNameChange(event)
     {
-        this.setState({name:event.target.value})
+        this.setState({english_name:event.target.value})
     }
-
+    onArabicNameChange(event)
+    {
+        this.setState({arabic_name:event.target.value})
+    }
     async handleSubmit(event)
     {
         event.preventDefault();
@@ -55,15 +58,15 @@ export default class CategoryPage extends React.Component{
 
             try 
             {
-                const response = await fetch(`http://192.168.1.6:8000/api/categories/?name=${this.state.name}&token=${token}`, {
+                const response = await fetch(`http://192.168.1.3:8000/api/categories/?english_name=${this.state.english_name}&arabic_name=''&token=${token}`, {
                     method: 'POST'
                 });
                 const result = await response.json();
                 if (result.success) 
                 {
-                    console.log("done")
+                    alert('Category added');
                     this.getCategories();
-                    this.setState({name:""})
+                    this.setState({english_name:""})
                 } 
                 else 
                 {
@@ -84,8 +87,9 @@ export default class CategoryPage extends React.Component{
             <div><h3 className="het">Add Category</h3>
             
                 <Form className="ctn">
-                <Form.Item label="Category Name:">
-                <Input placeholder="Add New Category" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+                <Form.Item label="Add New Category:">
+                <Input placeholder="Category's English Name" value={this.state.english_name} onChange={this.onEnglishNameChange.bind(this)} />
+                {/* <Input placeholder="Category's Arabic Name" value={this.state.arabic_name} onChange={this.onArabicNameChange.bind(this)} /> */}
               </Form.Item>
               <Form.Item className="btnA" >
                 <Button type="primary" className="btna" onClick = {this.handleSubmit.bind(this)}>Add</Button>

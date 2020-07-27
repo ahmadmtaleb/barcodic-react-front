@@ -4,7 +4,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Sidebar from './components/sideNav/SideNav';
 import Home from './pages/HomePage/HomePage';
 import CategoryPage from './pages/CategoryPage/CategoryPage';
-import Header from '../src/components/Header/Header'
+import Header from '../src/components/Header/Header';
+import AuthForm from './components/AuthForm';
+import Register from './components/Register/Register';
 
 
 export default class App extends React.Component {
@@ -13,7 +15,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       UserName: '',
-      loggedIn: true,
+      loggedIn: false,
       info: []
     }
   }
@@ -22,22 +24,23 @@ export default class App extends React.Component {
     if (token !== undefined && token !== null) {
 
       try {
-        const response = await fetch(`http://localhost:8000/api/transactions?token=${token}`);
+        const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
         const result = await response.json();
 
         this.setState({
           loggedIn: true,
           
         })
-      } catch (error) {}
+      } 
+      catch (error) {}
     
      this.getUser();
     }
-  }
+}
    getUser=async()=>{
     try{
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://127.0.0.1:8000/api/check-user?token=${token}`, {method:"POST"});
+      const response = await fetch(`http://192.168.1.3:8000/api/check-user?token=${token}`, {method:"POST"});
       const json = await response.json();
       if (json.success === true) {
           this.setState({
@@ -67,7 +70,7 @@ export default class App extends React.Component {
         <BrowserRouter>
 
         {
-          // !this.state.loggedIn ? <LandingPage handleLogin={this.handleLogin} /> : (
+          !this.state.loggedIn ? <AuthForm handleLogin={this.handleLogin} /> : (
 
             <div>
             <Header></Header>
@@ -78,13 +81,15 @@ export default class App extends React.Component {
               <Switch>
                 <Route path='/' exact component={Home}></Route>
                 <Route path='/Category' component={CategoryPage}></Route>
+                <Route path='/Register' component={Register}></Route>
+
               </Switch>
 
 
             </div>
         </div>
 
-          // )
+          )
         }
 
         </BrowserRouter>

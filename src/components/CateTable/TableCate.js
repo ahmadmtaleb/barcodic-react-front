@@ -20,14 +20,14 @@ class TabelForm extends React.Component {
         event.preventDefault();
         debugger;
         this.setState({id:event.target.value}, async()=> {
-          // Running it using this way will ensure that we get the latest id from the stae
+          // Running it using this way will ensure that we get the latest id from the state
           // this function will only run when react finish updating the state 
           const token = localStorage.getItem('token');
           if (token !== undefined && token !== null) {
 
             try 
             {
-                const response = await fetch(`http://127.0.0.1:8000/api/categories/${this.state.id}?token=${token}`, {
+                const response = await fetch(`http://192.168.1.3:8000/api/categories/${this.state.id}?token=${token}`, {
                     method: 'DELETE'
                 });
                 const result = await response.json();
