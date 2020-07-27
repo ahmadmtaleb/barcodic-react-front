@@ -24,32 +24,34 @@ export default class App extends React.Component {
     if (token !== undefined && token !== null) {
 
       try {
-        const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
+        // const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
+        const response = await fetch(`http://192.168.1.3:8000/api/check-user?token=${token}`, {method:"POST"});
         const result = await response.json();
 
         this.setState({
           loggedIn: true,
+          UserName: result.data.username
           
         })
       } 
       catch (error) {}
     
-     this.getUser();
+    //  this.getUser();
     }
 }
-   getUser=async()=>{
-    try{
-      const token = localStorage.getItem('token');
-      const response = await fetch(`http://192.168.1.3:8000/api/check-user?token=${token}`, {method:"POST"});
-      const json = await response.json();
-      if (json.success === true) {
-          this.setState({
-              UserName: json.data.name
-          })
-      }
-    }
-    catch(error){}
-  }
+  //  getUser=async()=>{
+  //   try{
+  //     const token = localStorage.getItem('token');
+  //     const response = await fetch(`http://192.168.1.3:8000/api/check-user?token=${token}`, {method:"POST"});
+  //     const json = await response.json();
+  //     if (json.success === true) {
+  //         this.setState({
+  //             UserName: json.data.username
+  //         })
+  //     }
+  //   }
+  //   catch(error){}
+  // }
   
   handleLogin =  () => {
     

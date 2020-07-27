@@ -29,7 +29,7 @@ class TableForm extends React.Component {
               12:"معلبات",
               13:"معجون أسنان",
               14:"شامبو",
-              15:"ديودرون",
+              15:"عطورات",
               16:"فحم",
               17: "حبوب/بهارات",
               18:"ألبان/أجبان",
@@ -47,15 +47,7 @@ class TableForm extends React.Component {
           {title: 'price', field: 'price'}
         ],
       
-      data: [
-        { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-        {
-          name: 'Zerya Betül',
-          surname: 'Baran',
-          birthYear: 2017,
-          birthCity: 34,
-        },
-      ]
+      data: []
     };
   }
   componentDidMount = async ()=> {
@@ -80,7 +72,7 @@ class TableForm extends React.Component {
 
       <div className="table_component_main_body" style={{maxWidth:'100%'}}>
         <MaterialTable
-          title="Items"
+          title="ITEMS TABLE"
           
           columns={this.state.columns}
           data={this.state.data}
@@ -92,6 +84,7 @@ class TableForm extends React.Component {
                   this.setState((prevState) => {
                     const data = [...prevState.data];
                     data.push(newData);
+                    console.log(newData);
                     return { ...prevState, data };
                   });
                 }, 600);
@@ -126,7 +119,11 @@ class TableForm extends React.Component {
             exportButton: true,
             filtering: true,
             search:true,
-            sorting:true
+            sorting:true,
+            headerStyle: {
+              textAlign:"center",
+              fontWeight:"bold"
+            }
           }}
           
         />
