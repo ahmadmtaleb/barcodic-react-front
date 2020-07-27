@@ -58,7 +58,7 @@ export default class CategoryPage extends React.Component{
 
             try 
             {
-                const response = await fetch(`http://192.168.1.3:8000/api/categories/?english_name=${this.state.english_name}&arabic_name=''&token=${token}`, {
+                const response = await fetch(`http://192.168.1.3:8000/api/categories/?english_name=${this.state.english_name}&arabic_name='بطاريات'&token=${token}`, {
                     method: 'POST'
                 });
                 const result = await response.json();
