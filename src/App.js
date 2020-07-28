@@ -14,7 +14,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      UserName: '',
       loggedIn: false,
       info: []
     }
@@ -25,13 +24,11 @@ export default class App extends React.Component {
 
       try {
         // const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
-        const response = await fetch(`http://192.168.1.3:8000/api/check-user?token=${token}`, {method:"POST"});
+        const response = await fetch(`http://192.168.1.12:8000/api/check-user?token=${token}`, {method:"POST"});
         const result = await response.json();
 
         this.setState({
-          loggedIn: true,
-          UserName: result.data.username
-          
+          loggedIn: true          
         })
       } 
       catch (error) {}

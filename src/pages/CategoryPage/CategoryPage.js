@@ -30,7 +30,7 @@ export default class CategoryPage extends React.Component{
       if (token !== undefined && token !== null) {
   
         try {
-          const response = await fetch(`http://192.168.1.3:8000/api/categories?token=${token}`);
+          const response = await fetch(`http://192.168.1.12:8000/api/categories?token=${token}`);
           const json = await response.json();
 
           if (json.success === true) {
@@ -58,14 +58,14 @@ export default class CategoryPage extends React.Component{
 
             try 
             {
-                const response = await fetch(`http://192.168.1.3:8000/api/categories/?english_name=${this.state.english_name}&arabic_name='بطاريات'&token=${token}`, {
+                const response = await fetch(`http://192.168.1.12:8000/api/categories/?english_name=${this.state.english_name}&arabic_name='بطاريات'&token=${token}`, {
                     method: 'POST'
                 });
                 const result = await response.json();
                 if (result.success) 
                 {
-                    alert('Category added');
-                    this.getCategories();
+                  alert("Category has been successfully added!");                    
+                  this.getCategories();
                     this.setState({english_name:""})
                 } 
                 else 

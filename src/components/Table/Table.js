@@ -55,7 +55,7 @@ class TableForm extends React.Component {
     if (token !== undefined && token !== null) {
 
       try {
-        const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
+        const response = await fetch(`http://192.168.1.12:8000/api/items?token=${token}`);
         const json = await response.json();
 
         if (json.success === true) {
@@ -84,7 +84,7 @@ class TableForm extends React.Component {
                   this.setState((prevState) => {
                     const data = [...prevState.data];
                     data.push(newData);
-                    console.log(newData);
+                    alert("Your item has been successfully added!");
                     return { ...prevState, data };
                   });
                 }, 600);
@@ -97,6 +97,7 @@ class TableForm extends React.Component {
                     this.setState((prevState) => {
                       const data = [...prevState.data];
                       data[data.indexOf(oldData)] = newData;
+                      alert("Your item has been successfully updated!");
                       return { ...prevState, data };
                     });
                   }
@@ -109,6 +110,7 @@ class TableForm extends React.Component {
                   this.setState((prevState) => {
                     const data = [...prevState.data];
                     data.splice(data.indexOf(oldData), 1);
+                    alert("Your item has been successfully deleted!");
                     return { ...prevState, data };
                   });
                 }, 600);

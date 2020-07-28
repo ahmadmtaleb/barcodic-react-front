@@ -67,7 +67,7 @@ export default function SignIn(props) {
             event.preventDefault();
              try 
             {
-                const response = await fetch(`http://192.168.1.3:8000/api/login/?username=${email}&password=${pass}`, {
+                const response = await fetch(`http://192.168.1.12:8000/api/login/?username=${email}&password=${pass}`, {
                     method: 'POST'
                 });
     

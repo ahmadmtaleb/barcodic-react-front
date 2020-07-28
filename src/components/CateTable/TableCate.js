@@ -27,15 +27,14 @@ class TabelForm extends React.Component {
 
             try 
             {
-                const response = await fetch(`http://192.168.1.3:8000/api/categories/${this.state.id}?token=${token}`, {
+                const response = await fetch(`http://192.168.1.12:8000/api/categories/${this.state.id}?token=${token}`, {
                     method: 'DELETE'
                 });
                 const result = await response.json();
                 if (result.success) 
                 {
                   this.props.updateDate()
-                    console.log("done")
-                } 
+                  alert("Category has been deleted successfully!");                } 
                 else 
                 {
                     console.log("error")
