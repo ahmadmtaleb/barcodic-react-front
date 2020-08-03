@@ -20,11 +20,12 @@ export default class App extends React.Component {
   }
   async componentDidMount() {
     const token = localStorage.getItem('token');
+    const url = window.$url;
     if (token !== undefined && token !== null) {
 
       try {
         // const response = await fetch(`http://192.168.1.3:8000/api/items?token=${token}`);
-        const response = await fetch(`http://192.168.1.12:8000/api/check-user?token=${token}`, {method:"POST"});
+        const response = await fetch(`http://`+url+`:8000/api/check-user?token=${token}`, {method:"POST"});
         const result = await response.json();
 
         this.setState({

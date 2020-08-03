@@ -27,10 +27,11 @@ export default class CategoryPage extends React.Component{
 
     getCategories = async ()=> {
       const token = localStorage.getItem('token');
+      const url = window.$url;
       if (token !== undefined && token !== null) {
   
         try {
-          const response = await fetch(`http://192.168.1.12:8000/api/categories?token=${token}`);
+          const response = await fetch(`http://`+url+`:8000/api/categories?token=${token}`);
           const json = await response.json();
 
           if (json.success === true) {
@@ -54,11 +55,12 @@ export default class CategoryPage extends React.Component{
     {
         event.preventDefault();
         const token = localStorage.getItem('token');
+        const url = window.$url;
           if (token !== undefined && token !== null) {
 
             try 
             {
-                const response = await fetch(`http://192.168.1.12:8000/api/categories/?english_name=${this.state.english_name}&arabic_name=بطاريات&token=${token}`, {
+                const response = await fetch(`http://`+url+`:8000/api/categories/?english_name=${this.state.english_name}&arabic_name=بطاريات&token=${token}`, {
                     method: 'POST'
                 });
                 const result = await response.json();
